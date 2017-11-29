@@ -14,7 +14,7 @@ public class StringHasUniqueCharactersTest {
     sUniqueChars = "asdfghjkl";
     sHasSameChars = "qwertyuq";
     sEmptyString = "";
-    sLargeString = "";
+    sLargeString = createDataSize(1024);
     sDifferentEncodingTrue = "asdqwe\nxcf\rjkl";
     sDifferentEncodingFalse = "asd\nf\n\rw";
   }
@@ -35,6 +35,11 @@ public class StringHasUniqueCharactersTest {
   }
 
   @Test
+  public void testLargeString() {
+    Assert.assertFalse(StringHasUniqueCharacters.isAllUniqueCharacter(sLargeString));
+  }
+
+  @Test
   public void testDifferentEncodingTrueString() {
     Assert.assertTrue(StringHasUniqueCharacters.isAllUniqueCharacter(sDifferentEncodingTrue));
   }
@@ -42,5 +47,16 @@ public class StringHasUniqueCharactersTest {
   @Test
   public void testDifferentEncodingFalseString() {
     Assert.assertFalse(StringHasUniqueCharacters.isAllUniqueCharacter(sDifferentEncodingFalse));
+  }
+
+  private static String createDataSize(int msgSize) {
+    // Java chars are 2 bytes
+    msgSize = msgSize/2;
+    msgSize = msgSize * 1024;
+    StringBuilder sb = new StringBuilder(msgSize);
+    for (int i=0; i<msgSize; i++) {
+      sb.append('a');
+    }
+    return sb.toString();
   }
 }
