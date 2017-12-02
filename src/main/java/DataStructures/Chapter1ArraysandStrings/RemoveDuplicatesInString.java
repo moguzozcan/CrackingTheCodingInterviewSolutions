@@ -1,6 +1,8 @@
 package DataStructures.Chapter1ArraysandStrings;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /*
 Design an algorithm and write code to remove the duplicate characters in a string without using any
