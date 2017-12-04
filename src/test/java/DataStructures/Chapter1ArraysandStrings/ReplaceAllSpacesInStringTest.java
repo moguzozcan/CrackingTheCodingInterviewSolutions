@@ -13,4 +13,11 @@ public class ReplaceAllSpacesInStringTest {
     Assert.assertEquals(newStr, "asdf%20qwer%20zxcv");
 
   }
+
+  @Test
+  public void testReplaceAllSpacesV2() {
+    String str = "asdf qwer zxcv";
+    String newStr = ReplaceAllSpacesInString.replaceSpacesv2(str);
+    Assert.assertEquals(newStr, "asdf%20qwer%20zxcv");
+  }
 }
